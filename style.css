@@ -1,0 +1,860 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Jelajahi keindahan kebudayaan, seni, dan tradisi Nusantara.">
+  <title>Pesona Kebudayaan Indonesia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cokelat: #8B5A2B;
+      --emas: #D4AF37;
+      --gading: #FDFBF7;
+      --arang: #2C2C2C;
+      --putih: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--gading);
+      color: var(--arang);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(44, 44, 44, 0.97);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--emas);
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .logo-icon {
+      font-size: 35px;
+    }
+
+    .logo small {
+      display: block;
+      color: var(--gading);
+      font: 10px 'Poppins', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gading);
+      font-size: 13px;
+      transition: color .3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--emas);
+    }
+
+    .menu-toggle {
+      display: none;
+      color: var(--emas);
+      background: none;
+      border: 1px solid var(--emas);
+      border-radius: 5px;
+      padding: 7px 12px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--putih);
+      background:
+        linear-gradient(rgba(20, 17, 14, .48), rgba(20, 17, 14, .72)),
+        url('https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=1800&q=85')
+        center 45% / cover no-repeat;
+      padding: 90px 20px;
+    }
+
+    .hero-content {
+      max-width: 790px;
+      animation: muncul 1s ease;
+    }
+
+    .eyebrow {
+      color: var(--emas);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.25;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 67px);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--emas);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 30px;
+      color: #f5f0e8;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 27px;
+      background: var(--emas);
+      color: #241c0d;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--emas);
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--emas);
+      transform: translateY(-3px);
+    }
+
+    /* SECTION UMUM */
+    section {
+      padding: 75px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 38px;
+    }
+
+    .section-heading .eyebrow {
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(29px, 4vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      font-size: 13px;
+      color: #6d665e;
+    }
+
+    /* KARTU BUDAYA */
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .culture-card {
+      background: var(--putih);
+      border: 1px solid #e9dfd0;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .culture-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px rgba(70, 44, 19, .12);
+    }
+
+    .culture-card img {
+      height: 185px;
+      transition: transform .5s;
+    }
+
+    .culture-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-body .number {
+      color: var(--cokelat);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .card-body h3 {
+      font-size: 19px;
+      margin: 8px 0;
+    }
+
+    .card-body p {
+      font-size: 12px;
+      color: #6d665e;
+    }
+
+    .card-link {
+      display: inline-block;
+      color: var(--cokelat);
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    /* TENTANG */
+    .about {
+      background: var(--arang);
+      color: var(--gading);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .about-image {
+      height: 390px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid rgba(212, 175, 55, .55);
+    }
+
+    .about-image img {
+      height: 100%;
+    }
+
+    .about-text h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 span {
+      color: var(--emas);
+    }
+
+    .about-text p {
+      color: #ded6ca;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .about-text .btn {
+      margin-top: 10px;
+    }
+
+    /* GALERI */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 190px;
+      gap: 14px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #e5d8c6;
+    }
+
+    .gallery-item:nth-child(1),
+    .gallery-item:nth-child(4) {
+      grid-column: span 3;
+    }
+
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(5) {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.09);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 25px 15px 12px;
+      background: linear-gradient(transparent, rgba(0,0,0,.85));
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* BERITA */
+    .news {
+      background: #f2ebdf;
+    }
+
+    .news-card {
+      background: var(--putih);
+      padding: 25px;
+      border-left: 4px solid var(--emas);
+      border-radius: 5px 12px 12px 5px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .news-card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .news-card p {
+      color: #6d665e;
+      font-size: 13px;
+    }
+
+    /* KONTAK */
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-size: 14px;
+      color: #6d665e;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #211b16;
+      color: var(--gading);
+      padding: 40px 0 20px;
+      border-top: 3px solid var(--emas);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 35px;
+      margin-bottom: 30px;
+    }
+
+    footer h3 {
+      color: var(--emas);
+      margin-bottom: 13px;
+      font-size: 20px;
+    }
+
+    footer p,
+    footer a {
+      font-size: 12px;
+      color: #d5cabc;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 8px;
+    }
+
+    footer a:hover {
+      color: var(--emas);
+    }
+
+    .copyright {
+      border-top: 1px solid #514334;
+      padding-top: 18px;
+      text-align: center;
+      color: #b8aa98;
+      font-size: 11px;
+    }
+
+    @keyframes muncul {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 30px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .navbar {
+        min-height: 70px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      .logo-icon {
+        font-size: 28px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px 5%;
+        background: var(--arang);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        border-top: 1px solid #57452e;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .culture-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .culture-card img {
+        height: 220px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 280px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 170px;
+      }
+
+      .gallery-item:nth-child(n) {
+        grid-column: span 1;
+      }
+
+      .gallery-item:first-child {
+        grid-column: span 2;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER DAN NAVIGASI -->
+  <header>
+    <nav class="navbar container" aria-label="Navigasi utama">
+      <a class="logo" href="#beranda">
+        <span class="logo-icon" aria-hidden="true">❋</span>
+        <span>
+          Budaya Nusantara
+          <small>Warisan Leluhur, Kebanggaan Kita</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false" aria-controls="navLinks">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#budaya">Budaya</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#berita">Berita</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="hero-content">
+        <p class="eyebrow">Warisan Nusantara</p>
+        <h1>Pesona Kebudayaan <span>Indonesia</span></h1>
+        <p>
+          Jelajahi kekayaan budaya, tradisi, seni, dan kearifan lokal
+          yang menjadi identitas bangsa Indonesia.
+        </p>
+        <a class="btn" href="#budaya">Jelajahi Budaya &nbsp; →</a>
+      </div>
+    </section>
+
+    <!-- BUDAYA NUSANTARA -->
+    <section id="budaya">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Keindahan Nusantara</p>
+          <h2>Budaya Nusantara</h2>
+          <p>
+            Dari Sabang sampai Merauke, setiap daerah memiliki
+            keunikan tradisi dan warisan budaya yang luar biasa.
+          </p>
+        </div>
+
+        <div class="culture-grid">
+          <article class="culture-card">
+            <img
+              src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=700&q=80"
+              alt="Suasana seni dan budaya tradisional Indonesia"
+              loading="lazy">
+            <div class="card-body">
+              <span class="number">01 / SENI</span>
+              <h3>Tari Tradisional</h3>
+              <p>Gerakan indah yang sarat makna, filosofi, dan nilai kehidupan.</p>
+              <a class="card-link" href="#galeri">Lihat Galeri →</a>
+            </div>
+          </article>
+
+          <article class="culture-card">
+            <img
+              src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=700&q=80"
+              alt="Arsitektur dan bangunan bersejarah Indonesia"
+              loading="lazy">
+            <div class="card-body">
+              <span class="number">02 / ARSITEKTUR</span>
+              <h3>Rumah Adat</h3>
+              <p>Arsitektur khas yang mencerminkan identitas dan kearifan lokal.</p>
+              <a class="card-link" href="#galeri">Lihat Galeri →</a>
+            </div>
+          </article>
+
+          <article class="culture-card">
+            <img
+              src="https://images.unsplash.com/photo-1605522469906-3fe226b356a1?auto=format&fit=crop&w=700&q=80"
+              alt="Kain dengan motif tradisional"
+              loading="lazy">
+            <div class="card-body">
+              <span class="number">03 / KERAJINAN</span>
+              <h3>Kain Batik</h3>
+              <p>Mahakarya motif tradisional yang kaya simbol dan keindahan.</p>
+              <a class="card-link" href="#galeri">Lihat Galeri →</a>
+            </div>
+          </article>
+
+          <article class="culture-card">
+            <img
+              src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=80"
+              alt="Pertunjukan seni dan musik"
+              loading="lazy">
+            <div class="card-body">
+              <span class="number">04 / MUSIK</span>
+              <h3>Musik Tradisional</h3>
+              <p>Alunan alat musik daerah yang menyatukan seni dan masyarakat.</p>
+              <a class="card-link" href="#galeri">Lihat Galeri →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section class="about" id="tentang">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1000&q=85"
+            alt="Karya seni dan warisan budaya"
+            loading="lazy">
+        </div>
+
+        <div class="about-text">
+          <p class="eyebrow">Cerita di Balik Tradisi</p>
+          <h2>Tentang <span>Budaya Kita</span></h2>
+          <p>
+            Indonesia adalah rumah bagi beragam suku, bahasa, kesenian,
+            dan tradisi yang diwariskan dari generasi ke generasi.
+          </p>
+          <p>
+            Kami hadir untuk memperkenalkan kekayaan budaya Nusantara
+            dan mengajak generasi muda agar bangga, mengenal, serta
+            ikut melestarikan warisan leluhur.
+          </p>
+          <p>
+            Sebab budaya bukan sekadar cerita masa lalu, melainkan
+            identitas yang terus hidup dan berkembang bersama kita.
+          </p>
+          <a class="btn" href="#kontak">Pelajari Lebih Lanjut →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Jendela Nusantara</p>
+          <h2>Galeri Budaya</h2>
+          <p>
+            Nikmati keindahan dan keberagaman budaya Indonesia
+            melalui galeri visual Nusantara.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
+              alt="Pemandangan alam dan budaya Bali"
+              loading="lazy">
+            <figcaption class="gallery-caption">Pesona Bali</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?auto=format&fit=crop&w=700&q=80"
+              alt="Bangunan bersejarah Indonesia"
+              loading="lazy">
+            <figcaption class="gallery-caption">Warisan Sejarah</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1605522469906-3fe226b356a1?auto=format&fit=crop&w=700&q=80"
+              alt="Motif kain tradisional"
+              loading="lazy">
+            <figcaption class="gallery-caption">Motif Nusantara</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=900&q=80"
+              alt="Keindahan seni tradisional"
+              loading="lazy">
+            <figcaption class="gallery-caption">Seni dan Tradisi</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=700&q=80"
+              alt="Pertunjukan seni"
+              loading="lazy">
+            <figcaption class="gallery-caption">Musik dan Kesenian</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- BERITA -->
+    <section class="news" id="berita">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Cerita dan Inspirasi</p>
+          <h2>Berita Kebudayaan</h2>
+          <p>Kenali pentingnya menjaga budaya agar tetap hidup di masa depan.</p>
+        </div>
+
+        <article class="news-card">
+          <p class="eyebrow">Warisan Generasi</p>
+          <h3>Melestarikan Budaya, Menjaga Identitas Bangsa</h3>
+          <p>
+            Mengenal tarian daerah, mempelajari bahasa lokal, menggunakan
+            produk kerajinan tradisional, dan mengikuti kegiatan budaya
+            merupakan langkah sederhana untuk menjaga warisan Indonesia.
+            Mulailah dari lingkungan sekitar dan bagikan pengetahuan
+            tersebut kepada generasi berikutnya.
+          </p>
+          <a class="card-link" href="#kontak">Mari Berpartisipasi →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Bersama Menjaga Warisan</p>
+          <h2>Budaya Kita, Kebanggaan Kita</h2>
+        </div>
+        <p>
+          Mari bersama-sama mengenal, menghargai, dan melestarikan
+          kebudayaan Indonesia agar tetap menjadi kebanggaan bangsa.
+        </p>
+        <a class="btn" href="mailto:budayanusantara@example.com">
+          Hubungi Kami →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>❋ Budaya Nusantara</h3>
+          <p>
+            Mengenal keberagaman, merawat tradisi, dan menjaga warisan
+            leluhur demi masa depan kebudayaan Indonesia.
+          </p>
+        </div>
+
+        <div>
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang Kami</a></li>
+            <li><a href="#budaya">Budaya</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Jelajahi</h3>
+          <ul>
+            <li><a href="#berita">Berita Budaya</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#galeri">Inspirasi Nusantara</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; 2026 Budaya Nusantara. Dibuat dengan cinta untuk Indonesia.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT MENU RESPONSIF -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', function () {
+      const isOpen = navLinks.classList.toggle('active');
+
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'
+      );
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Tutup menu setelah tautan dipilih.
+    navLinks.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Buka menu navigasi');
+        menuToggle.textContent = '☰';
+      });
+    });
+  </script>
+</body>
+</html>
